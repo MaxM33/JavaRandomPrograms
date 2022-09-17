@@ -1,3 +1,3 @@
 # Java Random Programs
 
-Descriptions are included in the programs
+Descriptions are included in the programs.
