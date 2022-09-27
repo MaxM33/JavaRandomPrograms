@@ -50,8 +50,9 @@ public class Office {
 		System.out.printf("\nAll clients entered the first room.\n\n");
 
 		ThreadPoolExecutor sportelli = new ThreadPoolExecutor(4, 4, 0, TimeUnit.SECONDS,
-				new ArrayBlockingQueue<Runnable>(8));
-
+				new ArrayBlockingQueue<Runnable>(4));
+		
+		// max 8 clients are allowed to stay in the second queue
 		while (firstqueue.peek() != null) {
 			if (sportelli.getQueue().size() < 4) {
 				Client currentClient = firstqueue.poll();
