@@ -20,7 +20,7 @@ class Client implements Runnable {
 	}
 
 	public int getNumber() {
-		return this.clientNumber;
+		return clientNumber;
 	}
 
 	@Override
