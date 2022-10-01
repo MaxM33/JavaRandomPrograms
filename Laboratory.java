@@ -1,6 +1,8 @@
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ArrayBlockingQueue;
 
+// java Laboratory X Y Z (where X is number of Students, Y is number of Thesis worker, Z is number of Professors)
+
 class Computer {
 	int number;
 
@@ -156,8 +158,8 @@ class PCQueue {
 			Computer ret = items.poll();
 			notifyAll();
 			return ret;
-		} else if (user.compareTo("Tesista") == 0) { // Tesista should stay on the same pc, here it doesn't because
-														// contains returns false even though should be true
+		} else if (user.compareTo("Tesista") == 0) { // Tesista should stay on the same pc, here it doesn't because 
+							     // contains() returns false even though should be true
 			Computer toGet = new Computer(index);
 			waitingTesista++;
 			while (items.size() == 0 /* || items.contains(toGet) == false */ || assignedProfessore > 0
@@ -202,11 +204,6 @@ class PCQueue {
 	}
 }
 
-// java Laboratory 20 5 3
-// 					^ ^ ^
-//# of Studenti ----| | |
-// 	  # of Tesisti ----| |
-//        # of Profs ----|
 public class Laboratory {
 	public static void main(String[] args) {
 		int numberStudente = Integer.parseInt(args[0]);
