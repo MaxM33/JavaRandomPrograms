@@ -27,16 +27,19 @@ Il file di output contiene una riga per ciascun carattere ed è formattato come 
 class Task implements Runnable {
     String filename;
     Map<String, Integer> map;
+    int number;
 
-    public Task(String filename, Map<String, Integer> map) {
+    public Task(String filename, Map<String, Integer> map, int number) {
         this.filename = filename;
         this.map = map;
+        this.number = number;
     }
 
     @Override
     public void run() {
         int c = 0;
         File file = new File(filename);
+        System.out.printf("Thread %s working on %s\n", number, filename);
         try (FileReader fr = new FileReader(file)) {
             BufferedReader br = new BufferedReader(fr);
             while ((c = br.read()) != -1) {
@@ -60,7 +63,7 @@ public class Occorrenze {
         Map<String, Integer> map = new ConcurrentHashMap<String, Integer>(26);
         ExecutorService threadPool = Executors.newFixedThreadPool(args.length);
         for (int i = 0; i < args.length; i++) {
-            threadPool.execute(new Task(args[i], map));
+            threadPool.execute(new Task(args[i], map, i + 1));
         }
         threadPool.shutdown();
 
