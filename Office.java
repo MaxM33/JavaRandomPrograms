@@ -43,6 +43,7 @@ public class Office {
 		System.out.printf("How many clients are about to enter? ");
 		Scanner scan = new Scanner(System.in);
 		int clients = scan.nextInt();
+		scan.close();
 
 		for (int i = 1; i <= clients; i++) {
 			firstqueue.add(new Client(i));
