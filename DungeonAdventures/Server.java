@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -63,6 +62,7 @@ class Player implements Runnable {
 
     public void run() {
         try {
+            String cmd = new String();
             boolean end = false, exit = false, won = false, lost = false, tied = false;
 
             while (!end) {
@@ -70,10 +70,10 @@ class Player implements Runnable {
                 generateMonster();
                 displayStats();
 
-                out.printf("endReading\n");
-                String cmd = in.nextLine();
-
                 while (!won && !lost && !tied && !exit) {
+                    out.printf("endReading\n");
+                    cmd = in.nextLine();
+
                     switch (cmd) {
                         case "attack":
                             playerAttack();
@@ -117,14 +117,6 @@ class Player implements Runnable {
                         default:
                             out.printf("\nInvalid command!\n");
                             break;
-                    }
-
-                    if (!won && !lost && !tied) {
-                        out.printf("endReading\n");
-                        try {
-                            cmd = in.nextLine();
-                        } catch (NoSuchElementException s) {
-                        }
                     }
                 }
 
