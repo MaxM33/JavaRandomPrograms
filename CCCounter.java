@@ -84,6 +84,7 @@ public class CCCounter {
             threadPool.execute(new Task(conto, map));
         }
         reader.endArray();
+        reader.close();
 
         threadPool.shutdown();
         threadPool.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
