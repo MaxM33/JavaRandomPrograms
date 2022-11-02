@@ -75,7 +75,7 @@ public class CCCounter {
     public static void main(String[] args) throws Exception {
         Map<String, Integer> map = new ConcurrentHashMap<String, Integer>(5);
         ExecutorService threadPool = Executors.newFixedThreadPool(Integer.parseInt(args[1])); // number of threads
-        File file = new File(args[0]); // pathname di account.json
+        File file = new File(args[0]); // pathname of accounts.json
 
         JsonReader reader = new JsonReader(new FileReader(file));
         reader.beginArray();
