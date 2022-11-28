@@ -1,0 +1,8 @@
+*Please modify just the values, and nothing else*
+- Request/Response connection port: 1000
+- Words connection port: 1001
+- Multicast port: 6789
+- Datagram TTL (0 <= ttl <= 255): 255
+- Timeout Datagram receive (in milliseconds): 1000
+- Server Socket Address: 127.0.0.1
+- Multicast Address: 239.255.255.255

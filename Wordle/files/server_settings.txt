@@ -1,0 +1,9 @@
+*Please modify just the values, and nothing else*
+- Request/Response connection port: 1000
+- Words connection port: 1001
+- Timeout R/R connection (in milliseconds): 10000
+- Timeout words connection (in milliseconds): 1000
+- Time before a new word is generated (in milliseconds): 180000
+- Multicast port: 6789
+- Datagram TTL (0 <= ttl <= 255): 255
+- Multicast Address: 239.255.255.255
