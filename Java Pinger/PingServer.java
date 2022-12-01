@@ -28,9 +28,10 @@ public class PingServer {
         }
         int timewait = 0;
         double losschance = 0.25;
+        
         DatagramSocket socket = new DatagramSocket(port);
-
         System.out.println("Server running...");
+        
         while (true) {
             byte[] buf = new byte[256];
             DatagramPacket packetreceived = new DatagramPacket(buf, buf.length);
