@@ -59,7 +59,7 @@ public class PingClient {
         float averageRTT = RTTcumulative / countreceived;
         System.out.printf(
                 "---- PING Statistics ----\n10 packets transmitted, %s packets received, %spercent packet loss\nround-trip (ms) min/avg/max = %s/%.2f/%s\n\n",
-                countreceived, 10 - countreceived / 10 * 100, minRTT, averageRTT, maxRTT);
+                countreceived, (10 - countreceived) * 10, minRTT, averageRTT, maxRTT);
         socket.close();
     }
 }
