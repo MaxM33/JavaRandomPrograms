@@ -26,8 +26,8 @@ public class PingClient {
             System.out.println("ERR -arg 2 'Server is not listening to that port'.");
             return;
         }
-        int countreceived = 0, RTT = 0, RTTcumulative = 0, minRTT = 0, maxRTT = 0;
         long timeStart = 0, timeEnd = 0;
+        int countreceived = 0, RTT = 0, RTTcumulative = 0, minRTT = 0, maxRTT = 0;
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(args[0]);
 
