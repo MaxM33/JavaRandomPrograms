@@ -26,8 +26,8 @@ public class PingClient {
             System.out.println("ERR -arg 2 'Server is not listening to that port'.");
             return;
         }
-        int countreceived = 0;
-        long timeStart = 0, timeEnd = 0, RTT = 0, RTTcumulative = 0, minRTT = 0, maxRTT = 0;
+        int countreceived = 0, RTT = 0, RTTcumulative = 0, minRTT = 0, maxRTT = 0;
+        long timeStart = 0, timeEnd = 0;
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(args[0]);
 
@@ -45,13 +45,13 @@ public class PingClient {
                 socket.receive(packetreceived);
                 countreceived++;
                 timeEnd = System.currentTimeMillis();
-                RTT = timeEnd - timeStart;
+                RTT = (int) timeEnd - timeStart;
                 RTTcumulative += RTT;
                 if (RTT > maxRTT)
                     maxRTT = RTT;
                 if (RTT < minRTT)
                     minRTT = RTT;
-                System.out.println(message + " RTT: " + Long.toString(RTT) + " ms");
+                System.out.println(message + " RTT: " + Integer.toString(RTT) + " ms");
             } catch (SocketTimeoutException so) {
                 System.out.println(message + " RTT: *");
             }
