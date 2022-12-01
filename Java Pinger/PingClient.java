@@ -28,9 +28,9 @@ public class PingClient {
         }
         long timeStart = 0, timeEnd = 0;
         int countreceived = 0, RTT = 0, RTTcumulative = 0, minRTT = 0, maxRTT = 0;
+        
         DatagramSocket socket = new DatagramSocket();
         InetAddress address = InetAddress.getByName(args[0]);
-
         socket.setSoTimeout(2000);
 
         for (int i = 0; i < 10; i++) {
